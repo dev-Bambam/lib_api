@@ -14,6 +14,7 @@ class Database{
         try{
             $pdo = new PDO(self::$dsn, self::$user, self::$password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
         }catch (PDOException $e){
             echo json_encode([
                 "error" =>  $e->getMessage()
